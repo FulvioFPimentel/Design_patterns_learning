@@ -1,12 +1,16 @@
 package one.learning.designe_patterns;
 
-import one.learning.designe_patterns.singleton.SingletonEager;
-import one.learning.designe_patterns.singleton.SingletonLazy;
-import one.learning.designe_patterns.singleton.SingletonLazyHolder;
+import one.learning.designe_patterns.strategy.AggressiveBehavior;
+import one.learning.designe_patterns.strategy.Behavior;
+import one.learning.designe_patterns.strategy.DefensiveBehavior;
+import one.learning.designe_patterns.strategy.NormalBehavior;
+import one.learning.designe_patterns.strategy.Robot;
 
 public class Test {
 
 	public static void main(String[] args) {
+		
+		/** Singleton
 		
 		 SingletonLazy lazy = SingletonLazy.getInstance();
 		 System.out.println(lazy);
@@ -24,7 +28,25 @@ public class Test {
 		 System.out.println(lazyHolder);
 		 lazyHolder = SingletonLazyHolder.getInstance();
 		 System.out.println(lazyHolder);
-		
+		 **/
+
+		 // Strategy
+		 
+		 Behavior defencive = new DefensiveBehavior();
+		 Behavior normal = new NormalBehavior();
+		 Behavior aggressive = new AggressiveBehavior();
+		 
+		 Robot robot = new Robot();
+		 
+		 robot.setBehavior(normal);
+		 robot.move();
+		 robot.move();
+		 robot.setBehavior(defencive);
+		 robot.move();
+		 robot.setBehavior(aggressive);
+		 robot.move();
+		 robot.move();
+		 robot.move();
 	}
 
 }
